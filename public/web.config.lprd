@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <directoryBrowse enabled="true" />
+        <defaultDocument>
+            <files>
+                <add value="index.php" />
+            </files>
+        </defaultDocument>
+        <handlers>
+            <add name="FastCgiModule" path="*.php" verb="*" modules="FastCgiModule" scriptProcessor="C:\php\php-cgi.exe" resourceType="File" />
+        </handlers>
+    </system.webServer>
+</configuration>

@@ -1,0 +1,9 @@
+<div>
+	<h1 class="text-center text-warning fw-bold mt-4 mb-4 px-4">	
+		----Under Construction---
+	</h1>
+	<div class="container mb-3">
+		<img style="height:auto; width:auto; object-fit: cover; position:relative;" class="d-flex w-100" src={{asset("/img/Photos/what_we_do/smunder.jpg")}}>
+	</div>
+</div>
+
