@@ -12,6 +12,7 @@
     <style>
         body {
 /*            background-image: linear-gradient(#ffeeb6, white);*/
+display:none;
         }
 
         .container-category {
@@ -61,19 +62,21 @@
  @include('components.navbar')
  @include('components.carousel')
  <div class="container d-block">
+    <div class="d-flex">
     <h1 class="fw-bold mt-3 text-warning">All News</h1>
-
+     <div class="col mt-4 text-end">
+        <button type="button" id="toggle-filter" class="btn btn-warning">
+            <i class="bi bi-filter"></i>
+        </button>
+    </div>
+</div>
     <div class="row">
         <div class="col-sm-6 col-md-8 col-lg-8">
             <span class="fs-5">Stay up-to-date on the latest news from the Joy~Nostalg Group</span>
         </div>
     </div>
 <div class="row mt-3 px-3">
-    <div class="col text-end">
-        <button type="button" id="toggle-filter" class="btn btn-warning">
-            <i class="bi bi-filter"></i>
-        </button>
-    </div>
+   
 </div>
     <form id="filter-form" class="mb-4 mt-3" style="display: none;">
 
@@ -118,8 +121,10 @@
 <hr class="fw-bold text-warning"/>
 </div>
 <div class="container d-block">
+    <div class="d-flex">
     <h1 class="fw-bold mt-3 text-warning">Joy Stories</h1>
-
+    
+    </div>
     <div class="row">
         <div class="col-sm-6 col-md-8 col-lg-8">
             <span class="fs-5">Stories of hope from our beneficiaries, employees and partners</span>
@@ -132,7 +137,7 @@
             <div class="col-md-4">
             </div>
             <div class="col-md-4 text-end">
-                <label for="sort" class="form-label">Filter By Year</label>
+            <label for="sort" class="form-label">Filter By Year</label>
                 <select id="sort" name="sort" class="form-select text-end" style="width: 100px;">
                  <option value="all" selected>All</option>
                  <option value="2025" >2025</option>
@@ -145,7 +150,6 @@
                  <option value="2018" >2018</option>
                  <option value="2017" >2017</option>
                  <option value="2016" >2016</option>
-
              </select>
          </div>
      </div>
@@ -200,7 +204,7 @@
 <div class="row news-container">
     @foreach($videocontents as $index => $video)
     <div id="videos-{{$index}}" class="col-sm-12 col-md-4 col-lg-4 px-3">
-        <iframe width=auto height=220px src="{{$video['url']}}" frameborder="0" allowfullscreen name="iframe_{{$video['id']}}"></iframe>
+        <iframe width=100% height=250px src="{{$video['url']}}" frameborder="0" allowfullscreen name="iframe_{{$video['id']}}"></iframe>
         <a href="{{$video['url']}}" style="height: 220px;width: auto; target="iframe_{{$video['id']}}">
             <!-- <img src="{{$video['url']}}"/> -->
         </a>
@@ -209,8 +213,8 @@
             <p class="fs-6">{{$news['content']}}</p>
             <p class="fs-6 invisible">{{$news['rank']}}</p>
             <a class="fs-6" href="/news/{{$news['id']}}" target="_blank"><p class="text-end">READ MORE<i class="bi bi-arrow-up-right"></i></p></a>
-        </div>
-        @endforeach
+    </div>
+    @endforeach
     </div>
 </div>
 <div class="container mb-4 mt-5">
@@ -222,26 +226,27 @@
             <h1 class="text-warning fw-bold">Follow us on Social Media</h1>
             <p class="fs-6">Follow us on our social media platforms to get the latest updates about us.</p>
             <span class="fs-4 fw-bold">Joy~Nostalg Group:</span>
-               <div class="d-flex">
-                <a class="" style="margin: 0 10px; text-decoration: none;" href="">
-                  <i class="bi bi-facebook fs-3">Joy~Nostalg</i>
-                </a>
-                <a class="" style="margin: 0 10px; text-decoration: none;" href="">
-                  <i class="bi bi-instagram fs-3">@joynostalg</i>
-                </a></div><br>
-                <a class="" style="margin: 0 10px; text-decoration: none;" href="">
-                  <i class="bi bi-linkedin fs-3">Joy~Nostalg Official</i>
-                </a>
-                <a class="" style="margin: 0 10px; text-decoration: none;" href="">
-                  <i class="bi bi-youtube fs-3">Joy-Nostalg</i>
-                </a>
-               </div>
-      </div>
+            <div style="display: flex; align-items: center; padding: 14px 0 !important;">
+              <i class="bi bi-facebook fs-3"></i>
+              <span style="margin:0 8px;">Joy~Nostalg</span>
+              <i class="bi bi-instagram fs-3"></i>
+              <span style="margin:0 8px;">@joynostalg</span>
+             </div>
+            <div style="display: flex; align-items: center; padding: 14px 0 !important;">
+              <i class="bi bi-linkedin fs-3"></i>
+              <span style="margin:0 8px;">Joy~Nostalg Official</span>
+              <i class="bi bi-youtube fs-3"></i>
+              <span style="margin:0 8px;">Joy~Nostalg</span>
+            </div>
+          </div>
         </div>
 
     </div>
 </div>
-
+</body>
+<footer>
+    @include('components.footer')
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -277,6 +282,7 @@
             const loadingPopup = document.getElementById('loading-popup');
             const contentContainer = document.getElementById('content-container');
             loadingPopup.classList.add('hidden');
+            document.body.style.display = "block";
             // contentContainer.style.display = 'block';
         });
 $(document).ready(function () {
@@ -302,8 +308,5 @@ $(document).ready(function () {
 
 
 </script>
-</body>
-<footer>
-    @include('components.footer')
-</footer>
+
 </html>

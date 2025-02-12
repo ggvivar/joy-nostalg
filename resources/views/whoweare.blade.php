@@ -20,6 +20,7 @@
         body{
 /*            overflow-x: hidden;*/
             font-family: 'Roboto', sans-serif !important;
+            display: none;
         }
         p{
            font-family: 'Gotham', sans-serif !important;
@@ -141,10 +142,12 @@ width: 600px;
 }
 
 </style>
+
+@include('components.loader')
+@include('components.navbar')
 </head>
 <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-    @include('components.loader')
-    @include('components.navbar')
+   
     @include('components.carousel')
     <!-- Content Section -->
     <div class="container">
@@ -320,6 +323,7 @@ width: 600px;
         const loadingPopup = document.getElementById('loading-popup');
         const contentContainer = document.getElementById('content-container');
         loadingPopup.classList.add('hidden');
+        document.body.style.display = "block";
         contentContainer.style.display = 'block';
     });
 </script>

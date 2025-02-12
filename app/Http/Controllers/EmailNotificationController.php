@@ -19,7 +19,7 @@ class EmailNotificationController extends Controller
         //     'subject' => 'required|string',
         //     'message' => 'required|string|max:1000',
         // ]);
-        Mail::to('ggvivar@joy-nostalg.com')->send(new EmailFormSubmit($request->all(),null,'inquiry','JN-Website Inquiry'));
+        Mail::to('aetolentino@joy-nostalg.com')->send(new EmailFormSubmit($request->all(),null,'inquiry','JN-Website Inquiry'));
         return redirect()->back()->with('success', 'Your inquiry has been sent successfully!');
     }
     public function submitJobForm(Request $request){
@@ -34,7 +34,8 @@ class EmailNotificationController extends Controller
         // ]);
         $attachment = $request->file('CV');
 // dd($attachment);
-        Mail::to('ggvivar@joy-nostalg.com')->send(new EmailFormSubmit($request->all(), $attachment, 'jobForm','JN-Website Job Application'));
+// Mail::to('ggvivar@joy-nostalg.com')->send(new EmailFormSubmit($request->all(), $attachment, 'jobForm','JN-Website Job Application'));
+        Mail::to('aetolentino@joy-nostalg.com')->send(new EmailFormSubmit($request->all(), $attachment, 'jobForm','JN-Website Job Application'));
 
         return redirect()->back()->with('success', 'Your Job Application has been sent successfully!');
     } 

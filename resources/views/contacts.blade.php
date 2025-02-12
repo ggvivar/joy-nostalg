@@ -55,7 +55,7 @@
                 <h1 class="fw-bold">Corporate Directory</h1>
                 <h2>Choose the group you want to contact</h2>
 
-                <form action="{{ route('form.inquiry.submit') }}" method="POST">
+                <form form id="inquiryForm"  action="{{ route('form.inquiry.submit') }}" method="POST">
                     @csrf
                     <div class="row">
                         @foreach(['Property', 'Power', 'Hospitality', 'Culinary', 'Enclavewrx', 'Foundation'] as $group)
@@ -233,6 +233,10 @@
         const contentContainer = document.getElementById('content-container');
         loadingPopup.classList.add('hidden');
         contentContainer.style.display = 'block';
+    });
+     document.getElementById("inquiryForm").addEventListener("submit", function() {
+ 
+        document.getElementById("loading-popup").classList.remove('hidden');
     });
 </script>
 

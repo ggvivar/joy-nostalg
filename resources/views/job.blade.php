@@ -124,7 +124,7 @@
             contentContainer.style.display = 'block';
         });
                 document.getElementById("jobForm").addEventListener("submit", function() {
-        // Show loader
+    
         document.getElementById("loading-popup").classList.remove('hidden');
     });
 </script>

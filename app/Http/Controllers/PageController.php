@@ -156,7 +156,7 @@ private function getMilestone(string $page = null)
 return $items;
 }
 
-private function getArticles(){
+private function getArticles($id = null){
     $items = [
       [
        'id' => 1,
@@ -172,8 +172,17 @@ private function getArticles(){
        'date'   => "December 1, 2024",
        'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
    ],            
-];
-return $items;
+    ];
+    if ($id !== null) {
+        foreach ($items as $item) {
+            // dd($item);
+            if ($item['id'] == $id) {
+                return $item;
+            }
+        }
+        return null;
+    }
+    return $items;
 
 
 }
@@ -418,7 +427,7 @@ public function getContentNews($id = null) {
             'rank' => 2,
             'img_url' => asset('img/Photos/what_s_new/What_s New 2.png'),
             'title' => "Lorem ipsum dolor sit amet consectetur adipiscing elit",
-            'date' => "October 24, 2024",
+            'date' => "October 20, 2024",
             'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         ],
         [
@@ -436,8 +445,68 @@ public function getContentNews($id = null) {
             'title' => "Lorem ipsum dolor sit amet consectetur adipiscing elit",
             'date' => "October 23, 2024",
             'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ],
+        [
+            'id' => 4,
+            'rank' => '',
+            'img_url' => asset('img/Photos/what_s_new/What_s New 4.png'),
+            'title' => "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            'date' => "October 23, 2024",
+            'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ],
+        [
+            'id' => 5,
+            'rank' => 3,
+            'img_url' => asset('img/Photos/what_s_new/What_s New 4.png'),
+            'title' => "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            'date' => "October 23, 2024",
+            'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ],
+        [
+            'id' => 6,
+            'rank' => 3,
+            'img_url' => asset('img/Photos/what_s_new/What_s New 4.png'),
+            'title' => "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            'date' => "October 23, 2024",
+            'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ],
+        [
+            'id' => 7,
+            'rank' => 3,
+            'img_url' => asset('img/Photos/what_s_new/What_s New 4.png'),
+            'title' => "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            'date' => "October 23, 2024",
+            'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ],
+        [
+            'id' => 8,
+            'rank' => 3,
+            'img_url' => asset('img/Photos/what_s_new/What_s New 4.png'),
+            'title' => "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            'date' => "October 23, 2024",
+            'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ],
+        [
+            'id' => 9,
+            'rank' => 3,
+            'img_url' => asset('img/Photos/what_s_new/What_s New 4.png'),
+            'title' => "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            'date' => "October 23, 2024",
+            'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ],
+        [
+            'id' => 10,
+            'rank' => 3,
+            'img_url' => asset('img/Photos/what_s_new/What_s New 4.png'),
+            'title' => "Lorem ipsum dolor sit amet consectetur adipiscing elit",
+            'date' => "October 23, 2024",
+            'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         ]
     ];
+
+    usort($items, function($a, $b) {
+        return strtotime($b['date']) - strtotime($a['date']);
+    });
 
     if ($id !== null) {
         foreach ($items as $item) {
@@ -577,10 +646,22 @@ public function contacts(){
 }
 public function content($contentType,$id){
     // dd($id);
+    $contentType = ucwords($contentType);
     $navList = $this->makeNav();
+    $contents =$this->getContentNews();
     $content = $this->getContentNews($id);
 
-    return view('content',compact('navList','content'));    
+    return view('content',compact('navList','content','contents','contentType'));    
+
+}
+public function article($contentType,$id){
+    // dd($id);
+    $contentType = ucwords($contentType);
+    $navList = $this->makeNav();
+    $contents =$this->getArticles();
+    $content = $this->getArticles($id);
+
+    return view('content',compact('navList','content','contents','contentType'));    
 
 }
 public function job($id)

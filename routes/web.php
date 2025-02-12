@@ -14,6 +14,7 @@ Route::get('/what-s-new', [PageController::class, 'news'])->name('Whats-New');
 Route::get('/join-us',    [PageController::class, 'careers'])->name('Careers');
 Route::get('/contact-us', [PageController::class, 'contacts'])->name('ContactUs');
 Route::get('/view/content/{contentType}/{id}',[PageController::class,'content'])->name('Content');
+Route::get('/view/{contentType}/{id}',[PageController::class,'article'])->name('Article');
 Route::get('/view/contents/{contentType}',[PageController::class,'contents'])->name('Content');
 Route::get('/executives', [PageController::class,'leaders'])->name('Leaders');
 Route::get('/search/jobs',[PageController::class,'searchJobs']);

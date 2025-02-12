@@ -106,6 +106,7 @@
         body{
 /*            overflow-x: hidden;*/
             font-family: 'Roboto', sans-serif !important;
+            display:none;
         }
         p{
            font-family: 'Gotham', sans-serif !important;
@@ -182,11 +183,11 @@
 </style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     window.addEventListener('load', async () => {
         const loadingPopup = document.getElementById('loading-popup');
         const contentContainer = document.getElementById('content-container');
         loadingPopup.classList.add('hidden');
+        document.body.style.display = "block";
         contentContainer.style.display = 'block';
     });
 </script>
