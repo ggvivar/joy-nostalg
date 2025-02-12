@@ -13,6 +13,10 @@
       }
       .nav-link {
          font-size: 1.5rem !important;
+                  border-radius: 20px;
+         padding-left: 15px !important;
+         padding-right: 15px !important;
+         margin: 0 10px!important;
       }
       .navbar-brand img {
          height: 65px;
@@ -25,6 +29,16 @@
          height: 96px;
          background-color: #FCC737;
       }
+
+      .nav-link:hover {
+/*         font-weight: bold !important;*/
+         background-color: #E87C0C !important;
+         border-radius: 20px;
+         padding-left: 15px !important;
+         padding-right: 15px !important;
+         margin: 0 10px!important;
+      }
+
       @media (max-width: 992px) {
          .navbar {
             height: 100%;
@@ -59,37 +73,37 @@
          }
       }
       .active-nav {
-         font-weight: bold !important;
          background-color: #E87C0C !important;
          border-radius: 20px;
          padding-left: 15px !important;
          padding-right: 15px !important;
+         margin: 0 10px!important;
       }
       .active-nav-menu{
          font-weight: bold !important;
          color:white!important;
          font-size:1.75rem!important;
-/*         background-color: #F1EE8E !important;*/
-border-radius: 20px;
-padding-left: 15px !important;
-padding-right: 15px !important;
-}
+         /*         background-color: #F1EE8E !important;*/
+         border-radius: 20px;
+         padding-left: 15px !important;
+         padding-right: 15px !important;
+         }
 .dropdown-menu {
-  background-color: rgba(255, 255, 255, 0.5)!important;
-  backdrop-filter: blur(5px)!important;
+  background-color: rgba(255, 255, 255, 0.3)!important;
+  backdrop-filter: blur(15px)!important;
 }
 </style>
 </head>
    <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light">
    <div class="container-fluid d-flex align-items-center navbar-header" style="margin-left: 30px; margin-right: 30px;">
-      <a class="navbar-brand me-auto d-flex align-items-center" style="text-decoration: none;" href="/">   
+      <a class="navbar-brand me-auto d-flex align-items-center" style="text-decoration: none; margin-right: 20px" href="/">   
          <img alt="Joy Nostalg Logo" src="{{asset('img/Photos/icons/jn_logo.png')}}">
       </a>
       <div class="collapse navbar-collapse" id="navbarNav">
          <div class="d-flex justify-content-center flex-grow-1">
             @foreach($navList as $item)
             <a class="nav-link text-white {{ URL::current()==$item['url'] ? 'active-nav' : '' }}" 
-            style="margin: 0 20px;" 
+            style="margin: 0 25px;" 
             href="{{ $item['url'] }}">
             {{ $item['label'] }}
          </a>

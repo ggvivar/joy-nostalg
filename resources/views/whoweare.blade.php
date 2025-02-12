@@ -151,10 +151,11 @@ width: 600px;
         <h1 class=" text-warning mt-4">The Joy~Nostalg Group</h1>
         <div class="d-flex justify-content-center align-items-center  w-100">
             <div class="embed-responsive embed-responsive-16by9" style="height: auto; width:100% ">
-                <iframe class="embed-responsive-item justify-content-center" src="https://www.youtube.com/embed/bwEWmVuyShg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen ></iframe>.
+                <iframe class="embed-responsive-item justify-content-center" src="https://www.youtube.com/embed/bwEWmVuyShg?autoplay=1" frameborder="0" allow="accelerometer; autoplay;"></iframe>
 
             </div>
         </div>
+
 
         <div class="d-flex justify-content-center align-items-center text-center mx-5" style="height: 300px;">
             <div>
@@ -281,7 +282,7 @@ width: 600px;
     </div>
     <div class="award-year-container fs-1 text-center">
         <span class="award-year award-year-box active">2024</span>
-        <span class="award-year award-year-box">2023</span>
+        <span class="award-year award-year-box" disabled>2023</span>
         <span class="award-year award-year-box">2022</span>
         <span class="award-year award-year-box">2021</span>
         <span class="award-year award-year-box">2020</span>

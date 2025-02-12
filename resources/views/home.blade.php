@@ -20,10 +20,10 @@
                 </div>
                 <div class="row">
                     @foreach($companydetails as $company)
-                    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                        <img style="height:auto;width:258px " class="d-block mh-100 w-100" src="{{ $company['img_url'] }}" alt="{{ $company['companyName'] }}">
+                    <div class="col-sm-12 col-md-6 col-lg-6 mb-4">
+                        <img style="height:280;width:600px " class="d-block mh-100 w-100" src="{{ $company['img_url'] }}" alt="{{ $company['companyName'] }}">
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-8 mb-4">
+                    <div class="col-sm-12 col-md-6 col-lg-6 mb-4">
                         <h3 class='fw-bold'>{{ $company['companyName'] }}</h3>
                         <p class="text-justify fs-5">{{ $company['companyDescription'] }}</p>
                         <a class="text-warning"  href="{{ $company['companyWebsite'] }}" target="_blank">
@@ -36,10 +36,10 @@
                 <div class="text-left mb-4">
                     <h1 class="text-warning fw-bold">Joy~Nostalg Foundation</h1>
                     <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                            <img style="height:250px;width:auto" class="d-block mh-100 w-100" src="{{ asset('img/Photos/homepage/Home 7.png') }}" alt="{{ $company['companyName'] }}">
+                        <div class="col-sm-12 col-md-6 col-lg-6 mb-4">
+                            <img style="height:280px;width:600px" class="d-block mh-100 w-100" src="{{ asset('img/Photos/homepage/Home 7.png') }}" alt="{{ $company['companyName'] }}">
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-8 mb-4">
+                        <div class="col-sm-12 col-md-6 col-lg-6 mb-4">
                             <h3 class="fw-bold">Transforming the Lives of Filipinos</h3>
                             <p class="text-justify fs-5">Joy~Nostalg Foundation helps transform the lives of Filipinos through HOMEFUL and sustainable communities.</p>
                             <a class="text-warning href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjADWPSS_au7pPHnU1yJ_wli5xApSW0wc2rg&s" target="_blank">
@@ -106,10 +106,6 @@
         body{
 /*            overflow-x: hidden;*/
             font-family: 'Roboto', sans-serif !important;
-            margin-left: 100px;
-            margin-right: 130px;
-/*            width: 1366px;*/
-
         }
         p{
            font-family: 'Gotham', sans-serif !important;
@@ -190,7 +186,6 @@
     window.addEventListener('load', async () => {
         const loadingPopup = document.getElementById('loading-popup');
         const contentContainer = document.getElementById('content-container');
-        // await sleep(3000);//to test loader img only remove on prod
         loadingPopup.classList.add('hidden');
         contentContainer.style.display = 'block';
     });

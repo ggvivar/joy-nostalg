@@ -28,8 +28,8 @@
       background-color: #fff;
     }
     .carousel-inner img {
-      width: 600px;
-      height: 280px;
+/*      width: 1366px;*/
+      height: 580px;
       object-fit: fill; 
     }
 
@@ -51,7 +51,7 @@
      }
       .carousel-caption span{
       font-size: 18px;
-      text-shadow: 1px 1px 0px rgba(0,0,0, 0.4);
+      text-shadow: 5px 5px 0px rgba(0,0,0, 0.5);
 
     }
     }
@@ -66,7 +66,7 @@
     @endforeach
   </div>
 
-  <div class="carousel-inner" style="height:280px">
+  <div class="carousel-inner" style="height:580px">
     @foreach($carouselcontents as $index => $carousel)
     <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
       <img class="d-block mh-100 w-100" src="{{ $carousel['img_url'] }}" alt="carousel image {{ $index + 1 }}">

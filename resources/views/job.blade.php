@@ -116,12 +116,17 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <script>
+
             window.addEventListener('load', () => {
             const loadingPopup = document.getElementById('loading-popup');
             const contentContainer = document.getElementById('content-container');
             loadingPopup.classList.add('hidden');
             contentContainer.style.display = 'block';
         });
+                document.getElementById("jobForm").addEventListener("submit", function() {
+        // Show loader
+        document.getElementById("loading-popup").classList.remove('hidden');
+    });
 </script>
 </html>
 
