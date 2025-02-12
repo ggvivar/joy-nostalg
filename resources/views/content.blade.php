@@ -27,9 +27,11 @@
     background-color: #f1f1f1;
 }
 .share-btn{
+    font-size: 10px;
     border-radius: 15px;
-    width: 150px !important;
+    width: 120px !important;
     margin-left: auto; /* Aligns button to the end of the line */
+    background-color: blue;
 }
 </style>
 <head>
@@ -37,8 +39,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Joy-Nostalg Group</title>
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 </head>
@@ -56,7 +56,7 @@
                 <img style="object-fit: scale-down; width: 100%" src="{{$content['img_url']}}">
                 <div class="mt-3 d-flex align-items-center">
                     <span class="fs-6">{{$content['date']}}</span>
-                    <button class="share-btn btn btn-primary text-white ms-auto" id="share-btn" data-bs-toggle="modal" data-bs-target="#shareModal">
+                    <button class="share-btn text-white ms-auto bg-primary" id="share-btn" data-bs-toggle="modal" data-bs-target="#shareModal">
                         <i class="bi bi-box-arrow-up-right"></i> Share
                     </button>
                 </div>

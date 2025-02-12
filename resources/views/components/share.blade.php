@@ -56,12 +56,9 @@
                         <a href="#" id="twitter-share" target="_blank"><i class="bi bi-twitter"></i></a>
                         <a href="#" id="linkedin-share" target="_blank"><i class="bi bi-linkedin"></i></a>
                         <!-- <a href="#" id="whatsapp-share" target="_blank"><i class="bi bi-whatsapp"></i></a> -->
-                        
+                        <a href="#" id="copy-link" onclick="copyToClipboard()" title="Copy Link"><i class="bi bi-clipboard"></i></a>
                     </div>
-                    <div class="social-icons">
-                    <a href="#" id="copy-link" onclick="copyToClipboard()" title="Copy Link"><i class="bi bi-clipboard"></i><span id="currentUrl"></span></a>
-                    </div>
-
+                    
                 </div>
             </div>
         </div>
@@ -74,7 +71,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             const shareUrl = window.location.href;
             const shareTitle = document.querySelector("h1").innerText;
-            document.getElementById('currentUrl').innerHTML = window.location.href;
+document.getElementById('right').innerHTML = window.location.href;
             document.getElementById("facebook-share").href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
             document.getElementById("twitter-share").href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}`;
             document.getElementById("linkedin-share").href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
