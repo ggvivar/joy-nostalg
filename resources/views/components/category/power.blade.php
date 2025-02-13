@@ -29,14 +29,19 @@
 		</div>
 	</div>
 		<div class="d-block text w-100" style=" background-image: linear-gradient(to right, #ffffb7 , #ffd400);">
-			<div class="container">
-			<div class="mt-3 mb-3 mr-3 ml-3 py-3 w-100 text-center fw-bold" style="
+					<div>
+			<div class="mt-3 mb-3 py-3 text-center fw-bold" style="
 			background-color: #211F60ff;
 			color:#FCC737;
+			margin-right:150px;
+			padding-left: 150px;
 			border-top-right-radius: 20px;
 			border-bottom-right-radius:  20px;
 			height: 64px;">
 			<h3>OUR ENERGY COMPANIES</h3>
+		</div>
+			<div class="container">
+
 		</div>
 		<div class="row">
 			<div class="col-sm-6 col-md-4 col-lg-4 ">

@@ -420,7 +420,7 @@ public function getCompanyCategory(){
   ];
   return $items;
 }
-public function getContentNews($id = null) {
+public function getContentNews($id = null,$limit=null) {
     $items = [
         [
             'id' => 1,
@@ -507,7 +507,9 @@ public function getContentNews($id = null) {
     usort($items, function($a, $b) {
         return strtotime($b['date']) - strtotime($a['date']);
     });
-
+    if($limit!== null){
+        return array_slice($items, 0, $limit);
+    }
     if ($id !== null) {
         foreach ($items as $item) {
             // dd($item);
@@ -625,7 +627,8 @@ public function aboutus(){
 public function news(){
     $navList = $this->makeNav();
     $carouselcontents = $this->getCarousel();
-    $newscontents = $this->getContentNews(); 
+    $newscontents = $this->getContentNews(null,3); 
+    // dd($newscontents);
     $storiescontents = $this->getContentStories(); 
     $videocontents = $this->getContentVideos(); 
     $companydetails = $this->getCompanyDetails();

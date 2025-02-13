@@ -54,8 +54,8 @@
                     <div class="social-icons">
                         <a href="#" id="facebook-share" target="_blank"><i class="bi bi-facebook"></i></a>
                         <a href="#" id="twitter-share" target="_blank"><i class="bi bi-twitter"></i></a>
-                        <a href="#" id="linkedin-share" target="_blank"><i class="bi bi-linkedin"></i></a>
-                        <!-- <a href="#" id="whatsapp-share" target="_blank"><i class="bi bi-whatsapp"></i></a> -->
+                        <?php /*<a href="#" id="linkedin-share" target="_blank"><i class="bi bi-linkedin"></i></a> */?>
+                        <a href="https://web.whatsapp.com/send?text=Jacinto%20C.%20Ng%2C%20Jr.%20Wins%20EY%20Entrepreneur%20Of%20The%20Year%202024%20Philippines%20http%3A%2F%2F54.254.83.11%2Fview%2Farticle%2F1%23" id="whatsapp-share" target="_blank"><i class="bi bi-whatsapp"></i></a>
                         <a href="#" id="copy-link" onclick="copyToClipboard()" title="Copy Link"><i class="bi bi-clipboard"></i></a>
                     </div>
                     
@@ -67,23 +67,33 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-
+function copyToClipboard() {
+    const shareUrl = window.location.href;
+    navigator.clipboard.writeText(shareUrl)
+        .then(() => {
+            alert("Link copied to clipboard!");
+        })
+        .catch(err => {
+            console.error("Error copying link:", err);
+            alert("Unable to copy. Please copy manually.");
+        });
+}
         document.addEventListener("DOMContentLoaded", function () {
             const shareUrl = window.location.href;
-            const shareTitle = document.querySelector("h1").innerText;
-document.getElementById('right').innerHTML = window.location.href;
+            const shareTitle = document.getElementById('title').textContent;
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            var waUrl = isMobile 
+                ? `https://wa.me/?text=${encodeURIComponent(shareTitle + " " + shareUrl)}`
+                : `https://web.whatsapp.com/send?text=${encodeURIComponent(shareTitle + " " + shareUrl)}`;
+                waUrl =`https://web.whatsapp.com/send?text=${encodeURIComponent(shareTitle + " " + shareUrl)}`;
+            console.log(waUrl);
             document.getElementById("facebook-share").href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
             document.getElementById("twitter-share").href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}`;
             document.getElementById("linkedin-share").href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
-            document.getElementById("whatsapp-share").href = `https://wa.me/?text=${encodeURIComponent(shareTitle + " " + shareUrl)}`;
-
-            window.copyToClipboard = function () {
-                navigator.clipboard.writeText(shareUrl).then(() => {
-                    alert("Link copied to clipboard!");
-                }).catch(err => {
-                    console.error("Error copying link: ", err);
-                });
-            };
+            // document.getElementById("whatsapp-share").href = waUrl;
         });
+        $(document).bind("contextmenu",function(e) {
+ e.preventDefault();
+});
     </script>
 

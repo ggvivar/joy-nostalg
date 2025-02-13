@@ -2,16 +2,18 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <style>
 
-    .content-list {
+.content-list {
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: 100%;
+    max-height: 600px;
 }
 
 .content-list-scroll {
     overflow-y: auto;
-    max-height: 100%; /* Will be set dynamically */
-    padding-right: 10px; /* Prevent scrollbar from touching the edge */
+    flex-grow: 1; /* This allows it to take up the remaining space */
+    padding-right: 10px;
+    max-height: 600px;
 }
 /* Optional: Custom scrollbar */
 .content-list-scroll::-webkit-scrollbar {
@@ -51,7 +53,7 @@
     </div>
     <div class="container mt-3">
     <div class="row d-flex">
-            <h1 class="col-lg-9">{{$content['title']}}</h1>
+            <h1 id="title" class="col-lg-9">{{$content['title']}}</h1>
             <div class="content-news col-lg-9">
                 <img style="object-fit: scale-down; width: 100%" src="{{$content['img_url']}}">
                 <div class="mt-3 d-flex align-items-center">
@@ -64,12 +66,12 @@
             </div>
 
     <div class="content-list col-lg-3">
-        <h5 class="fs-3">Recent {{$contentType}}</h5>
-        <div class="content-list-scroll">
+        <h5 class="fs-3 fw-bold text-warning">Recent {{$contentType}}</h5>
+        <div class="content-list-scroll d-block">
                     @foreach($contents as $index => $contentitem)
-                        <a class="fs-4 {{ ($content['id'] == $contentitem['id']) ? 'fw-bold' : '' }}" href="/view/content/news/{{$contentitem['id']}}">{{$contentitem['title']}}</a>
-                        <span>{{$contentitem['date']}}</span>
-                        <hr>
+                        <a class="col-lg-12fs-4 {{ ($content['id'] == $contentitem['id']) ? 'fw-bold' : '' }}" href="/view/content/news/{{$contentitem['id']}}">{{$contentitem['title']}}</a><br>
+                        <span class="fs-6">{{$contentitem['date']}}</span>
+                        <hr class="text-warning">
                     @endforeach
         </div>
     </div>
@@ -83,25 +85,13 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // window.addEventListener('resize', adjustContentListHeight);
+   
     window.addEventListener('load', () => {
             const loadingPopup = document.getElementById('loading-popup');
             const contentContainer = document.getElementById('content-container');
             loadingPopup.classList.add('hidden');
             contentContainer.style.display = 'block';
-            const contentNews = document.getElementById('content-news');
-            const contentList = document.getElementById('content-list');
-            const contentListScroll = document.querySelector('.content-list-scroll');
-            if (contentNews && contentListScroll) {
-
-            let newHeight = contentNews.clientHeight + "px";
-            // echo "<p>yes</p>" );
-            contentList.style.height = newHeight;
-            contentListScroll.style.maxHeight = newHeight;
-        }
-        });
-    // Run on page load
-
+                });
 </script>
 
 

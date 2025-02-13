@@ -121,6 +121,7 @@
 			background-color: #211F60ff;
 			color:#FCC737;
 			margin-right:150px;
+			padding-left: 150px;
 			border-top-right-radius: 20px;
 			border-bottom-right-radius:  20px;
 			height: 64px;">
